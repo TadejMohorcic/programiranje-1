@@ -31,7 +31,7 @@ def download_url_to_string(url):
         print(e)
         return None
     # status_code nam pove, kakšen je bil odgovor
-    if page_content.status_code == requests.codes.ok:
+    if page_content.status_code == requests.codes["ok"]:
         return page_content.text
     # nadaljujemo s kodo če ni prišlo do napake
     print('Težava z vsebino strani')
@@ -69,9 +69,6 @@ def save_frontpage(page, directory, filename):
 
 def read_file_to_string(directory, filename):
     """Funkcija vrne celotno vsebino datoteke "directory"/"filename" kot niz."""
-    raise NotImplementedError()
-
-    """Funkcija vrne celotno vsebino datoteke "directory"/"filename" kot niz"""
     with open(os.path.join(directory, filename), encoding="utf-8") as f:
         return f.read()
 
@@ -84,8 +81,6 @@ def read_file_to_string(directory, filename):
 def page_to_ads(page_content):
     """Funkcija poišče posamezne oglase, ki se nahajajo v spletni strani in
     vrne seznam oglasov."""
-    raise NotImplementedError()
-    vrne njih seznam"""
     pattern = re.compile('<li class="EntityList-item EntityList-item--Regular(.*?)</article>', re.DOTALL)
 
     return re.findall(pattern, page_content)
@@ -97,9 +92,6 @@ def page_to_ads(page_content):
 def get_dict_from_ad_block(block):
     """Funkcija iz niza za posamezen oglasni blok izlušči podatke o imenu, ceni
     in opisu ter vrne slovar, ki vsebuje ustrezne podatke."""
-    raise NotImplementedError()
-    in opisu ter vrne slovar, ki vsebuje ustrezne podatke
-    """
     pattern = r'alt="(?P<naslov_oglasa>(.*?))"' #.groupdict
     result = re.search(pattern, block, re.DOTALL)
     return result.groupdict()
