@@ -68,15 +68,12 @@ def save_frontpage(page, directory, filename):
 
 
 def read_file_to_string(directory, filename):
-<<<<<<< HEAD
     """Funkcija vrne celotno vsebino datoteke "directory"/"filename" kot niz."""
     raise NotImplementedError()
 
-=======
     """Funkcija vrne celotno vsebino datoteke "directory"/"filename" kot niz"""
     with open(os.path.join(directory, filename), encoding="utf-8") as f:
         return f.read()
->>>>>>> b06ff5b... Druge vaje iz programiranja
 
 # Definirajte funkcijo, ki sprejme niz, ki predstavlja vsebino spletne strani,
 # in ga razdeli na dele, kjer vsak del predstavlja en oglas. To storite s
@@ -86,13 +83,10 @@ def read_file_to_string(directory, filename):
 
 def page_to_ads(page_content):
     """Funkcija poišče posamezne oglase, ki se nahajajo v spletni strani in
-<<<<<<< HEAD
     vrne seznam oglasov."""
     raise NotImplementedError()
-=======
     vrne njih seznam"""
     pattern = re.compile('<li class="EntityList-item EntityList-item--Regular(.*?)</article>', re.DOTALL)
->>>>>>> b06ff5b... Druge vaje iz programiranja
 
     return re.findall(pattern, page_content)
 
@@ -102,16 +96,13 @@ def page_to_ads(page_content):
 
 def get_dict_from_ad_block(block):
     """Funkcija iz niza za posamezen oglasni blok izlušči podatke o imenu, ceni
-<<<<<<< HEAD
     in opisu ter vrne slovar, ki vsebuje ustrezne podatke."""
     raise NotImplementedError()
-=======
     in opisu ter vrne slovar, ki vsebuje ustrezne podatke
     """
     pattern = r'alt="(?P<naslov_oglasa>(.*?))"' #.groupdict
     result = re.search(pattern, block, re.DOTALL)
     return result.groupdict()
->>>>>>> b06ff5b... Druge vaje iz programiranja
 
 
 # Definirajte funkcijo, ki sprejme ime in lokacijo datoteke, ki vsebuje
@@ -178,16 +169,13 @@ def main(redownload=True, reparse=True):
     save_frontpage(cats_frontpage_url, cat_directory, frontpage_filename)
     # Iz lokalne (html) datoteke preberemo podatke
 
-<<<<<<< HEAD
     # Podatke preberemo v lepšo obliko (seznam slovarjev)
-=======
     print(ads_from_file(frontpage_filename, cat_directory))
 
     html_data = read_file_to_string(cat_directory, frontpage_filename)
     ads = page_to_ads(html_data)
     #print(ads)
     # Podatke prebermo v lepšo obliko (seznam slovarjev)
->>>>>>> b06ff5b... Druge vaje iz programiranja
 
     # Podatke shranimo v csv datoteko
 
